@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D3 Grid Example</title>
+    <script src="../dist/d3grid.js"></script>
+  </head>
+  <body>
+    <div id="grid"></div>
+
+    <script type="text/javascript">
+      (function() {
+        var layout = [
+          { w: 12, h: 1, x: 0, y: 0 },
+          { w: 6, h: 1, x: 0, y: 1 },
+          { w: 3, h: 1, x: 7, y: 1 }
+        ];
+
+        var settings = {
+          rowHeight: 25,
+          height: 200,
+          width: 200,
+          margin: 10,
+          cols: 12
+        };
+
+        let grid = new D3Grid(layout, settings);
+
+        grid.render(document.getElementById('grid'));
+      })();
+    </script>
+  </body>
+</html>
