@@ -7,13 +7,13 @@ class D3Grid {
     this.settings.width = settings.width || 200;
     this.settings.margin = settings.margin || 5;
     this.settings.height = settings.height || 200;
-    this.settings.rowHeight = settings.rowheight || 20;
+    this.settings.rowHeight = settings.rowHeight || 20;
 
     this.layout = layout;
   }
 
   getWH(w, h) {
-    const wVal = (this.settings.width / this.settings.cols) * w;
+    const wVal = ((this.settings.width / this.settings.cols) * w) - this.settings.margin;
     const hVal = (this.settings.rowHeight * h) + (this.settings.margin * (h - 1));
 
     return { w: wVal, h: hVal };
@@ -42,8 +42,8 @@ class D3Grid {
   render(elem) {
     let container = d3.select(elem)
       .append('svg')
-      .attr('width', this.settings.height)
-      .attr('height', this.settings.width);
+      .attr('width', this.settings.width)
+      .attr('height', this.settings.height);
 
     this.layout.forEach(item => this.renderItem(container, item));
   }
