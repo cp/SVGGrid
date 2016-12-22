@@ -5,7 +5,7 @@ class D3Grid {
     this.settings = {};
     this.settings.cols = settings.cols || 12;
     this.settings.width = settings.width || 200;
-    this.settings.margin = settings.margin || 10;
+    this.settings.margin = settings.margin || 5;
     this.settings.height = settings.height || 200;
     this.settings.rowHeight = settings.rowheight || 20;
 
@@ -14,12 +14,13 @@ class D3Grid {
 
   getWH(w, h) {
     const wVal = (this.settings.width / this.settings.cols) * w;
+    const hVal = (this.settings.rowHeight * h) + (this.settings.margin * (h - 1));
 
-    return { w: wVal, h: this.settings.rowHeight };
+    return { w: wVal, h: hVal };
   }
 
   getXY(x, y) {
-    const yVal = this.settings.rowHeight * y;
+    const yVal = (this.settings.rowHeight * y) + (this.settings.margin * y);
     const xVal = (this.settings.width / this.settings.cols) * x;
 
     return { x: xVal, y: yVal };
@@ -30,6 +31,8 @@ class D3Grid {
     const { x, y } = this.getXY(layout.x, layout.y);
 
     container.append('rect')
+      .attr('fill', '#dedede')
+      .attr('stroke', '#ccc')
       .attr('x', x)
       .attr('y', y)
       .attr('width', w)
