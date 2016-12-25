@@ -1,6 +1,6 @@
 import utils from './utils';
 
-class D3Grid {
+class SVGGrid {
   constructor(layout, settings) {
     this.settings = {};
     this.settings.cols = settings.cols || 12;
@@ -36,16 +36,14 @@ class D3Grid {
   }
 
   render(elem) {
-
     const container = utils.createSVGElem('svg');
     container.setAttribute('width', this.settings.width);
     container.setAttribute('height', this.settings.height);
 
-    console.log(container);
     this.layout.forEach(item => this.renderItem(container, item));
 
     elem.appendChild(container);
   }
 }
 
-module.exports = D3Grid;
+module.exports = SVGGrid;

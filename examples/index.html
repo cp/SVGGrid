@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>D3 Grid Example</title>
-    <script src="../dist/d3grid.js"></script>
+    <title>SVG Grid Example</title>
+    <script src="../dist/svgGrid.js"></script>
     <style>
       body { margin: 0; }
     </style>
@@ -37,10 +37,10 @@
         };
 
 
-        var grid1 = new D3Grid(layouts[0], settings);
+        var grid1 = new SVGGrid(layouts[0], settings);
         grid1.render(document.getElementById('grid1'));
 
-        var grid2 = new D3Grid(layouts[1], settings);
+        var grid2 = new SVGGrid(layouts[1], settings);
         grid2.render(document.getElementById('grid2'));
       })();
     </script>

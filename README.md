@@ -1,4 +1,4 @@
-D3Grid
+SVGGrid
 ===
 
 Render a grid as SVG. Useful for building previews of given grid layouts.
@@ -23,7 +23,7 @@ const settings = {
 };
 
 // Initialize the renderer
-const grid = new D3Grid(layout, settings);
+const grid = new SVGGrid(layout, settings);
 
 // Render the grid on the DOM
 grid.render(document.getElementById('grid'));

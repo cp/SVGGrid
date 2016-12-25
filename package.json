@@ -1,17 +1,23 @@
 {
-  "name": "d3Grid",
+  "name": "SVGGrid",
   "version": "1.0.0",
-  "description": "Render a grid in svg via d3",
+  "description": "Render a simple grid via SVG",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cp/SVGGrid.git"
+  },
+  "homepage": "https://github.com/cp/SVGGrid",
   "scripts": {
     "start": "webpack-dev-server --content-base examples/ --inline --hot --port 4242",
     "prepublish": "make compile",
     "test": "make test"
   },
   "keywords": [
+    "svg"
   ],
   "author": "Colby Aley",
   "license": "MIT",

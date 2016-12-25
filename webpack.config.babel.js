@@ -15,8 +15,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: 'dist',
-    filename: 'd3grid.js',
+    filename: 'svgGrid.js',
     libraryTarget: 'var',
-    library: 'D3Grid'
+    library: 'SVGGrid'
   }
 };
