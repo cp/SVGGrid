@@ -3,31 +3,45 @@
   <head>
     <title>D3 Grid Example</title>
     <script src="../dist/d3grid.js"></script>
+    <style>
+      body { margin: 0; }
+    </style>
   </head>
   <body>
-    <div id="grid"></div>
+    <div id="grid1"></div>
+    <div id="grid2"></div>
 
     <script type="text/javascript">
       (function() {
-        var layout = [
-          { w: 12, h: 1, x: 0, y: 0 },
-          { w: 6, h: 1, x: 0, y: 1 },
-          { w: 6, h: 1, x: 0, y: 2 },
-          { w: 3, h: 2, x: 6, y: 1 },
-          { w: 3, h: 2, x: 9, y: 1 }
+        var layouts = [
+          [
+            { w: 12, h: 1, x: 0, y: 0 },
+            { w: 6, h: 1, x: 0, y: 1 },
+            { w: 6, h: 1, x: 0, y: 2 },
+            { w: 3, h: 2, x: 6, y: 1 },
+            { w: 3, h: 2, x: 9, y: 1 }
+          ],
+          [
+            { w: 3, h: 1, x: 0, y: 0 },
+            { w: 6, h: 2, x: 0, y: 1 },
+            { w: 3, h: 2, x: 9, y: 1 }
+          ],
         ];
 
         var settings = {
           rowHeight: 50,
-          height: 400,
+          height: 200,
           width: 300,
           margin: 5,
           cols: 12
         };
 
-        let grid = new D3Grid(layout, settings);
 
-        grid.render(document.getElementById('grid'));
+        var grid1 = new D3Grid(layouts[0], settings);
+        grid1.render(document.getElementById('grid1'));
+
+        var grid2 = new D3Grid(layouts[1], settings);
+        grid2.render(document.getElementById('grid2'));
       })();
     </script>
   </body>

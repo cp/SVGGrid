@@ -20,8 +20,8 @@ class D3Grid {
   }
 
   getXY(x, y) {
-    const yVal = (this.settings.rowHeight * y) + (this.settings.margin * y);
-    const xVal = (this.settings.width / this.settings.cols) * x;
+    const yVal = (this.settings.rowHeight * y) + (this.settings.margin * (y + 0.5));
+    const xVal = ((this.settings.width / this.settings.cols) * x) + (this.settings.margin / 2);
 
     return { x: xVal, y: yVal };
   }
@@ -40,7 +40,7 @@ class D3Grid {
   }
 
   render(elem) {
-    let container = d3.select(elem)
+    const container = d3.select(elem)
       .append('svg')
       .attr('width', this.settings.width)
       .attr('height', this.settings.height);
