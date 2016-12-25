@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import utils from './utils';
 
 class D3Grid {
   constructor(layout, settings) {
@@ -12,40 +12,39 @@ class D3Grid {
     this.layout = layout;
   }
 
-  getWH(w, h) {
-    const wVal = ((this.settings.width / this.settings.cols) * w) - this.settings.margin;
-    const hVal = (this.settings.rowHeight * h) + (this.settings.margin * (h - 1));
-
-    return { w: wVal, h: hVal };
-  }
-
-  getXY(x, y) {
-    const yVal = (this.settings.rowHeight * y) + (this.settings.margin * (y + 0.5));
-    const xVal = ((this.settings.width / this.settings.cols) * x) + (this.settings.margin / 2);
-
-    return { x: xVal, y: yVal };
+  getCoords({ x, y, w, h }) {
+    return {
+      x: ((this.settings.width / this.settings.cols) * x) + (this.settings.margin / 2),
+      y: (this.settings.rowHeight * y) + (this.settings.margin * (y + 0.5)),
+      h: (this.settings.rowHeight * h) + (this.settings.margin * (h - 1)),
+      w: ((this.settings.width / this.settings.cols) * w) - this.settings.margin,
+    };
   }
 
   renderItem(container, layout) {
-    const { w, h } = this.getWH(layout.w, layout.h);
-    const { x, y } = this.getXY(layout.x, layout.y);
+    const { x, y, w, h } = this.getCoords(layout);
 
-    container.append('rect')
-      .attr('fill', '#dedede')
-      .attr('stroke', '#ccc')
-      .attr('x', x)
-      .attr('y', y)
-      .attr('width', w)
-      .attr('height', h);
+    const item = utils.createSVGElem('rect');
+    item.setAttribute('fill', '#dedede');
+    item.setAttribute('stroke', '#ccc');
+    item.setAttribute('x', x);
+    item.setAttribute('y', y);
+    item.setAttribute('width', w);
+    item.setAttribute('height', h);
+
+    container.appendChild(item);
   }
 
   render(elem) {
-    const container = d3.select(elem)
-      .append('svg')
-      .attr('width', this.settings.width)
-      .attr('height', this.settings.height);
 
+    const container = utils.createSVGElem('svg');
+    container.setAttribute('width', this.settings.width);
+    container.setAttribute('height', this.settings.height);
+
+    console.log(container);
     this.layout.forEach(item => this.renderItem(container, item));
+
+    elem.appendChild(container);
   }
 }
 

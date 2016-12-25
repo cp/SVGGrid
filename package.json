@@ -22,8 +22,5 @@
     "babel-preset-react": "^6.11.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.1"
-  },
-  "dependencies": {
-    "d3": "^4.2.2"
   }
 }
