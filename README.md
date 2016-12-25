@@ -3,6 +3,8 @@ SVGGrid
 
 Render a grid as SVG. Useful for building previews of given grid layouts.
 
+No dependencies.
+
 ## Usage
 
 ```javascript

@@ -1,5 +1,5 @@
 {
-  "name": "SVGGrid",
+  "name": "svg-grid",
   "version": "1.0.0",
   "description": "Render a simple grid via SVG",
   "main": "dist/index.js",
