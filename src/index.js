@@ -1,7 +1,7 @@
 import utils from './utils';
 
 class SVGGrid {
-  constructor(layout, settings) {
+  constructor(layout, settings = {}) {
     this.settings = {};
     this.settings.cols = settings.cols || 12;
     this.settings.width = settings.width || 200;
@@ -9,7 +9,7 @@ class SVGGrid {
     this.settings.height = settings.height || 200;
     this.settings.rowHeight = settings.rowHeight || 20;
 
-    this.layout = layout;
+    this.layout = layout || [];
   }
 
   getCoords({ x, y, w, h }) {
@@ -43,6 +43,8 @@ class SVGGrid {
     this.layout.forEach(item => this.renderItem(container, item));
 
     elem.appendChild(container);
+
+    return this;
   }
 }
 

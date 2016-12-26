@@ -5,7 +5,7 @@ setup:
 	npm install --save-dev
 
 test:
-	./node_modules/.bin/babel-tape-runner test/**/*.js
+	./node_modules/.bin/mocha --compilers js:babel-core/register --reporter list
 
 clean:
 	rm -rf ./dist
